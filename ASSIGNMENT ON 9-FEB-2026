@@ -1,3 +1,21 @@
+        Client (Browser)
+              |  HTTP Request
+              ↓
+        Web Server
+              |  Processes Request
+              ↓
+        Database Server
+              |
+              ↑
+        Data Response
+              |
+              ↑
+        Web Server
+              |  HTTP Response
+              ↑
+        Client (Browser)
+
+
 Client-server architecture is a network model in which multiple clients (users/devices) request services and resources from a centralized server.
 
 Client: A device or application (like a web browser) that sends requests.
