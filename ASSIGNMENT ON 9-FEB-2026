@@ -1,5 +1,5 @@
         Client (Browser)
-              |  HTTP Request
+              |  HTTP Request                    CLIENT  SERVER ARCHITECTURE DIAGRAM
               ↓
         Web Server
               |  Processes Request
