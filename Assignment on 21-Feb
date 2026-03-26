@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Hero Page</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            min-height: 100vh;
+            background: linear-gradient(to right, #3498db, #6dd5fa);
+            color: white;
+        }
+
+        .hero-text {
+            max-width: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text button {
+            padding: 12px 25px;
+            border: none;
+            background: white;
+            color: #3498db;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero-text button:hover {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .hero-img img {
+            width: 400px;
+            max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-img {
+                margin-top: 20px;
+            }
+
+            .hero-img img {
+                width: 250px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <section class="hero">
+
+        <div class="hero-text">
+            <h1>Welcome to My Website</h1>
+            <p>
+                I am a passionate developer creating modern and responsive web applications.
+                Explore my work and projects.
+            </p>
+            <button>Get Started</button>
+        </div>
+
+        <div class="hero-img">
+            <img src="https://via.placeholder.com/400" alt="Hero Image">
+        </div>
+
+    </section>
+
+</body>
+</html>
