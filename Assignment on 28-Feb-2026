@@ -1,0 +1,53 @@
+let students = [
+    { name: "Abhay", marks: [85, 90, 88] },
+    { name: "Rahul", marks: [70, 75, 80] },
+    { name: "Sneha", marks: [95, 92, 89] }
+];
+
+function calculateAverage(marks) {
+    let sum = 0;
+    for (let i = 0; i < marks.length; i++) {
+        sum += marks[i];
+    }
+    return sum / marks.length;
+}
+
+function displayStudents() {
+    for (let i = 0; i < students.length; i++) {
+        let avg = calculateAverage(students[i].marks);
+        console.log("Name: " + students[i].name);
+        console.log("Marks: " + students[i].marks.join(", "));
+        console.log("Average: " + avg);
+        console.log("Final details");
+    }
+}
+
+function addStudent() {
+    let name = prompt("Enter student name:");
+    let marks = [];
+
+    for (let i = 0; i < 3; i++) {
+        marks.push(parseInt(prompt("Enter mark " + (i + 1) + ":")));
+    }
+
+    students.push({ name: name, marks: marks });
+}
+
+function main() {
+    let choice;
+
+    do {
+        choice = prompt(
+            "1. Add Student\n2. Display Students\n3. Exit\nEnter your choice:"
+        );
+
+        if (choice == "1") {
+            addStudent();
+        } else if (choice == "2") {
+            displayStudents();
+        }
+
+    } while (choice != "3");
+}
+
+main();
