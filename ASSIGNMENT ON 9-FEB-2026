@@ -1,0 +1,29 @@
+Client-server architecture is a network model in which multiple clients (users/devices) request services and resources from a centralized server.
+
+Client: A device or application (like a web browser) that sends requests.
+Server: A system that processes requests and sends responses.
+Communication happens over the Internet using HTTP/HTTPS protocols.
+
+Key Features
+Centralized data management
+Multiple clients can connect to one server
+Easy maintenance and scalability
+
+PROCEDURE OF OPENING A WEBSITE
+User enters URL
+Example: www.google.com in the browser
+DNS Lookup
+- Browser contacts DNS (Domain Name System)
+Converts domain name into IP address
+- Connection Established
+Browser sends request to server using IP address
+- Uses TCP/IP protocol
+HTTP Request Sent
+- Browser sends an HTTP/HTTPS request to the server
+Server Processing
+- Server receives request
+- May interact with database to fetch data
+HTTP Response
+- Server sends response (HTML, CSS, JS files)
+Browser Rendering
+-Browser displays the webpage visually
