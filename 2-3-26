@@ -1,0 +1,150 @@
+App.js
+
+import React, { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let newErrors = {};
+
+    if (name === "") {
+      newErrors.name = "Name is required";
+    }
+
+    if (email === "") {
+      newErrors.email = "Email is required";
+    } else if (!email.includes("@")) {
+      newErrors.email = "Invalid email";
+    }
+
+    if (password === "") {
+      newErrors.password = "Password is required";
+    } else if (password.length < 6) {
+      newErrors.password = "Minimum 6 characters required";
+    }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      setSuccess("Form submitted successfully!");
+      setName("");
+      setEmail("");
+      setPassword("");
+    } else {
+      setSuccess("");
+    }
+  };
+
+  return (
+    <div className="container">
+      <h2>Interactive Form</h2>
+
+      <form onSubmit={handleSubmit}>
+        
+        <div className="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <p className="error">{errors.name}</p>
+        </div>
+
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <p className="error">{errors.email}</p>
+        </div>
+
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <p className="error">{errors.password}</p>
+        </div>
+
+        <button type="submit">Submit</button>
+        <p className="success">{success}</p>
+
+      </form>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+App.css
+body {
+  font-family: Arial;
+  background: #f4f4f4;
+}
+
+.container {
+  width: 300px;
+  margin: 100px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.success {
+  color: green;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
