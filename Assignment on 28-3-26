@@ -1,0 +1,37 @@
+Assignment on Task Api  (Crud)
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+let tasks = [];
+
+// CREATE
+app.post("/tasks", (req, res) => {
+  const task = { id: Date.now(), ...req.body };
+  tasks.push(task);
+  res.json(task);
+});
+
+// READ
+app.get("/tasks", (req, res) => {
+  res.json(tasks);
+});
+
+// UPDATE
+app.put("/tasks/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  tasks = tasks.map((t) =>
+    t.id === id ? { t, req.body } : t
+  );
+  res.json({ message: "Updated" });
+});
+
+// DELETE
+app.delete("/tasks/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  tasks = tasks.filter((t) => t.id !== id);
+  res.json({ message: "Deleted" });
+});
+
+app.listen(3000, () => console.log("Server running on port 3000"));
