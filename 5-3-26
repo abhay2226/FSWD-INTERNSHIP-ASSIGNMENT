@@ -1,0 +1,13 @@
+App
+│
+├── Header
+├── Navbar
+├── Banner
+├── Main Section
+│   ├── Sidebar
+│   └── ProductList
+│        └── ProductCard
+│        └── ProductCard
+│        └── ProductCard
+│
+└── Footer
