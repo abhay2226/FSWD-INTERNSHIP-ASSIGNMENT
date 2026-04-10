@@ -1,0 +1,80 @@
+Assignment on Smart Signup form up
+import React, { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState("");
+
+  const validate = () => {
+    let err = {};
+
+    if (!email) {
+      err.email = "Email required";
+    } else if (!email.includes("@")) {
+      err.email = "Invalid email";
+    }
+
+    if (!password) {
+      err.password = "Password required";
+    } else if (password.length < 6) {
+      err.password = "Weak password (min 6 chars)";
+    }
+
+    return err;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      setSuccess("Signup successful!");
+      setEmail("");
+      setPassword("");
+    } else {
+      setSuccess("");
+    }
+  };
+
+  return (
+    <div className="container">
+      <h2>Signup Form</h2>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <p className="error">{errors.email}</p>
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <p className="error">{errors.password}</p>
+
+        <button type="submit">Signup</button>
+        <p className="success">{success}</p>
+      </form>
+    </div>
+  );
+}
+
+export default App;
+
+
+App.css
+body { font-family: Arial; background: #f4f4f4; }
+.container { text-align: center; margin-top: 100px; }
+input { display: block; margin: 10px auto; padding: 8px; }
+button { padding: 8px; }
+.error { color: red; }
+.success { color: green; }
