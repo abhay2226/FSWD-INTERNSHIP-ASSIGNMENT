@@ -1,0 +1,39 @@
+Assignment on Routes for Bookstore 
+
+server.js
+
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+// Sample data
+let books = [
+  { id: 1, title: "Book A", authorId: 1 },
+  { id: 2, title: "Book B", authorId: 2 }
+];
+
+let authors = [
+  { id: 1, name: "Author A" },
+  { id: 2, name: "Author B" }
+];
+
+// Books Routes
+app.get("/books", (req, res) => res.json(books));
+
+app.post("/books", (req, res) => {
+  const book = { id: Date.now(), ...req.body };
+  books.push(book);
+  res.json(book);
+});
+
+// Authors Routes
+app.get("/authors", (req, res) => res.json(authors));
+
+app.post("/authors", (req, res) => {
+  const author = { id: Date.now(), ...req.body };
+  authors.push(author);
+  res.json(author);
+});
+
+app.listen(3000, () => console.log("Server running on port 3000"));
