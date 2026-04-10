@@ -1,0 +1,64 @@
+
+App.js
+
+import React, { useState } from "react";
+import "./App.css";
+
+const productsData = [
+  { id: 1, name: "Phone", category: "Electronics", price: 10000 },
+  { id: 2, name: "Shirt", category: "Fashion", price: 1000 },
+  { id: 3, name: "Laptop", category: "Electronics", price: 50000 },
+  { id: 4, name: "Shoes", category: "Fashion", price: 2000 }
+];
+
+function App() {
+  const [category, setCategory] = useState("All");
+
+  const filteredProducts =
+    category === "All"
+      ? productsData
+      : productsData.filter((p) => p.category === category);
+
+  return (
+    <div className="container">
+      <h2>Product Listing</h2>
+
+      <select onChange={(e) => setCategory(e.target.value)}>
+        <option value="All">All</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Fashion">Fashion</option>
+      </select>
+
+      <div className="grid">
+        {filteredProducts.map((p) => (
+          <div key={p.id} className="card">
+            <h4>{p.name}</h4>
+            <p>Category: {p.category}</p>
+            <p>Price: ₹{p.price}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+
+App.css
+body { font-family: Arial; background: #f4f4f4; }
+.container { text-align: center; margin-top: 50px; }
+
+select { padding: 8px; margin-bottom: 20px; }
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
