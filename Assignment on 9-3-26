@@ -1,0 +1,53 @@
+App.js
+
+import React, { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [mood, setMood] = useState("");
+
+  const getMessage = () => {
+    if (mood === "happy") return "😊 You are Happy!";
+    if (mood === "sad") return "😢 You are Sad!";
+    if (mood === "angry") return "😡 You are Angry!";
+    return "Select your mood";
+  };
+
+  return (
+    <div className="container">
+      <h2>Mood Tracker</h2>
+
+      <div className="buttons">
+        <button onClick={() => setMood("happy")}>Happy</button>
+        <button onClick={() => setMood("sad")}>Sad</button>
+        <button onClick={() => setMood("angry")}>Angry</button>
+      </div>
+
+      <h3>{getMessage()}</h3>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+App.css
+
+body {
+  font-family: Arial;
+  background: #f4f4f4;
+}
+
+.container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+
